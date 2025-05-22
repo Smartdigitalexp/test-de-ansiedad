@@ -1,205 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test EAMD - Escala de Depresión</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test de Ansiedad</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 30px; }
-    h1 { text-align: center; }
-    .question { margin-bottom: 20px; }
-    .results { margin-top: 30px; font-weight: bold; }
-    button { padding: 10px 20px; font-size: 18px; }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 16px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.7em;
+      margin-bottom: 24px;
+    }
+
+    .question {
+      margin-bottom: 24px;
+      padding: 16px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .question label:first-child {
+      display: block;
+      font-weight: bold;
+      font-size: 1.05em;
+      margin-bottom: 10px;
+    }
+
+    .question label {
+      display: flex;
+      align-items: center;
+      font-size: 1em;
+      padding: 6px 0;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1em;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    .results {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      background: #e0f7fa;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 1.1em;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        max-width: 600px;
+        margin: auto;
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Escala de Autoevaluación de la Depresión (EAMD)</h1>
-  <form id="eamd-form">
-    <div class="question">
-      
-      <label>1. Me siento decaído(a) y triste.</label><br>
-      
-      <input type="radio" name="q1" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q1" value="2"> Algunas veces<br>
-      <input type="radio" name="q1" value="3"> Muchas veces<br>
-      <input type="radio" name="q1" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>2. Por las mañanas me siento mejor.</label><br>
-      <input type="radio" name="q2" value="4" required> Muy pocas veces<br>
-      <input type="radio" name="q2" value="3"> Algunas veces<br>
-      <input type="radio" name="q2" value="2"> Muchas veces<br>
-      <input type="radio" name="q2" value="1"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>3. Lloro con facilidad o siento ganas de llorar.</label><br>
-      <input type="radio" name="q3" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q3" value="2"> Algunas veces<br>
-      <input type="radio" name="q3" value="3"> Muchas veces<br>
-      <input type="radio" name="q3" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>4. Tengo problemas para dormir.</label><br>
-      <input type="radio" name="q4" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q4" value="2"> Algunas veces<br>
-      <input type="radio" name="q4" value="3"> Muchas veces<br>
-      <input type="radio" name="q4" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>5. Como igual que antes.</label><br>
-      <input type="radio" name="q5" value="4" required> Muy pocas veces<br>
-      <input type="radio" name="q5" value="3"> Algunas veces<br>
-      <input type="radio" name="q5" value="2"> Muchas veces<br>
-      <input type="radio" name="q5" value="1"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>6. Noto que estoy adelgazando.</label><br>
-      <input type="radio" name="q6" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q6" value="2"> Algunas veces<br>
-      <input type="radio" name="q6" value="3"> Muchas veces<br>
-      <input type="radio" name="q6" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>7. Me cuesta ir al baño.</label><br>
-      <input type="radio" name="q7" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q7" value="2"> Algunas veces<br>
-      <input type="radio" name="q7" value="3"> Muchas veces<br>
-      <input type="radio" name="q7" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>8. Me cuesta comenzar con mis actividades.</label><br>
-      <input type="radio" name="q8" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q8" value="2"> Algunas veces<br>
-      <input type="radio" name="q8" value="3"> Muchas veces<br>
-      <input type="radio" name="q8" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>9. Me siento intranquilo(a) e inquieto(a).</label><br>
-      <input type="radio" name="q9" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q9" value="2"> Algunas veces<br>
-      <input type="radio" name="q9" value="3"> Muchas veces<br>
-      <input type="radio" name="q9" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>10. Me canso con facilidad.</label><br>
-      <input type="radio" name="q10" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q10" value="2"> Algunas veces<br>
-      <input type="radio" name="q10" value="3"> Muchas veces<br>
-      <input type="radio" name="q10" value="4"> Casi siempre
-    </div>
-<div class="question">
-      <label>11. Me cuesta tomar decisiones.</label><br>
-      <input type="radio" name="q11" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q11" value="2"> Algunas veces<br>
-      <input type="radio" name="q11" value="3"> Muchas veces<br>
-      <input type="radio" name="q11" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>12. Me siento inútil e incapaz.</label><br>
-      <input type="radio" name="q12" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q12" value="2"> Algunas veces<br>
-      <input type="radio" name="q12" value="3"> Muchas veces<br>
-      <input type="radio" name="q12" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>13. Siento que he perdido interés por las cosas.</label><br>
-      <input type="radio" name="q13" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q13" value="2"> Algunas veces<br>
-      <input type="radio" name="q13" value="3"> Muchas veces<br>
-      <input type="radio" name="q13" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>14. Siento que no soy bueno(a) para nada.</label><br>
-      <input type="radio" name="q14" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q14" value="2"> Algunas veces<br>
-      <input type="radio" name="q14" value="3"> Muchas veces<br>
-      <input type="radio" name="q14" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>15. Siento que no valgo la pena.</label><br>
-      <input type="radio" name="q15" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q15" value="2"> Algunas veces<br>
-      <input type="radio" name="q15" value="3"> Muchas veces<br>
-      <input type="radio" name="q15" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>16. Tengo pensamientos de suicidio.</label><br>
-      <input type="radio" name="q16" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q16" value="2"> Algunas veces<br>
-      <input type="radio" name="q16" value="3"> Muchas veces<br>
-      <input type="radio" name="q16" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>17. Me siento menos atraído(a) por el sexo.</label><br>
-      <input type="radio" name="q17" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q17" value="2"> Algunas veces<br>
-      <input type="radio" name="q17" value="3"> Muchas veces<br>
-      <input type="radio" name="q17" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>18. Me preocupo por mi salud.</label><br>
-      <input type="radio" name="q18" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q18" value="2"> Algunas veces<br>
-      <input type="radio" name="q18" value="3"> Muchas veces<br>
-      <input type="radio" name="q18" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>19. Me siento cansado(a) o con poca energía.</label><br>
-      <input type="radio" name="q19" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q19" value="2"> Algunas veces<br>
-      <input type="radio" name="q19" value="3"> Muchas veces<br>
-      <input type="radio" name="q19" value="4"> Casi siempre
-    </div>
-
-    <div class="question">
-      <label>20. Siento que mi vida no tiene sentido.</label><br>
-      <input type="radio" name="q20" value="1" required> Muy pocas veces<br>
-      <input type="radio" name="q20" value="2"> Algunas veces<br>
-      <input type="radio" name="q20" value="3"> Muchas veces<br>
-      <input type="radio" name="q20" value="4"> Casi siempre
-    </div>
-
+  <h1>Test de Ansiedad</h1>
+  <form id="ansiedad-form">
+    <div id="preguntas-container"></div>
     <button type="submit">Calcular resultado</button>
   </form>
-
   <div id="resultado" class="results"></div>
 
   <script>
-    document.getElementById("eamd-form").addEventListener("submit", function(event) {
-      event.preventDefault();
+    const preguntas = [
+      "1. Se ha sentido nervioso, ansioso o muy alterado.",
+      "2. No ha podido dejar de preocuparse.",
+      "3. Se ha preocupado excesivamente por diferentes cosas.",
+      "4. Ha tenido dificultad para relajarse.",
+      "5. Se ha sentido tan intranquilo que no podía estarse quieto.",
+      "6. Se ha irritado o enfadado con facilidad.",
+      "7. Ha sentido miedo, como si fuera a suceder algo terrible."
+    ];
 
+    const respuestas = [
+      "Nunca",
+      "Menos de la mitad de los días",
+      "Más de la mitad de los días",
+      "Casi todos los días"
+    ];
+
+    const container = document.getElementById("preguntas-container");
+
+    preguntas.forEach((texto, i) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      const labelPregunta = `<label>${texto}</label>`;
+      let radios = "";
+      respuestas.forEach((res, j) => {
+        radios += `
+          <label>
+            <input type="radio" name="q${i + 1}" value="${j}" required> ${res}
+          </label>
+        `;
+      });
+      div.innerHTML = labelPregunta + radios;
+      container.appendChild(div);
+    });
+
+    document.getElementById("ansiedad-form").addEventListener("submit", function(event) {
+      event.preventDefault();
       let total = 0;
       const form = new FormData(event.target);
-
       for (let value of form.values()) {
         total += parseInt(value);
       }
 
       let interpretacion = "";
-      if (total <= 40) interpretacion = "Normal";
-      else if (total <= 60) interpretacion = "Depresión leve";
-      else if (total <= 80) interpretacion = "Depresión moderada";
-      else interpretacion = "Depresión severa";
+      if (total <= 4) interpretacion = "Sin indicios de ansiedad para esta prueba, No hay síntomas clínicamente significativos de ansiedad generalizada. Acciones recomendadas: No se requiere tratamiento específico. Sin embargo, si la persona presenta malestar emocional o dificultades funcionales, puede ser útil ofrecer orientación básica o monitoreo.";
+      else if (total <= 9) interpretacion = "Posibles síntomas de ansiedad leve, Hay presencia de síntomas leves de ansiedad, pero no necesariamente cumplen criterios para un trastorno de ansiedad. Acciones recomendadas: Intervenciones de bajo nivel como educación sobre manejo del estrés, técnicas de relajación, actividad física, control del sueño. Si hay factores de riesgo (historia clínica, deterioro funcional, etc.), podría considerarse una evaluación más profunda.Consulte con nosotros";
+      else if (total <= 14) interpretacion = "Posibles síntomas de Ansiedad moderada. Probabilidad significativa de un trastorno de ansiedad generalizada u otro trastorno ansioso. Acciones recomendadas: Evaluación diagnóstica por un profesional de salud mental. A menudo se recomienda iniciar tratamiento, que puede incluir terapia cognitivo-conductual (TCC), otros enfoques psicoterapéuticos, y en algunos casos, medicación ansiolítica o antidepresiva.";
+      else interpretacion = "Indicios de Ansiedad severa,  Alta probabilidad de trastorno de ansiedad severo con posible afectación funcional importante. Acciones recomendadas: Derivación inmediata a un profesional de salud mental. Suele ser necesaria una intervención terapéutica intensiva, que puede incluir una combinación de psicoterapia y tratamiento farmacológico. Consulte pronto con nosotros";
 
-      document.getElementById("resultado").textContent = `Tu puntuación total es ${total}. Resultado: ${interpretacion}`;
+      document.getElementById("resultado").textContent =
+        `Tu puntuación total es ${total}. Resultado: ${interpretacion}`;
     });
   </script>
 </body>
 </html>
+
